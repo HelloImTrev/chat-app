@@ -41,7 +41,7 @@ export const signup = async (req, res) => {
     }
   } catch (error) {
     console.log(error.message);
-    res.status(500).json({ message: "Internal server error" });
+    res.status(500).json({ message: error.message });
   }
 };
 
@@ -68,6 +68,7 @@ export const login = async (req, res) => {
       fullName: user.fullName,
       email: user.email,
       profilePicture: user.profilePicture,
+      createdAt: user.createdAt,
     });
   } catch (error) {
     console.log(error.message);
